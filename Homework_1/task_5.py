@@ -13,6 +13,7 @@
 в массив стопок (lst = [[1,2,3,4,5], [], [], [],....]).
 """
 
+
 class StackClass:
     def __init__(self):
         self.elems = [[]]
@@ -21,7 +22,6 @@ class StackClass:
     def add_stack(self):
         self.elems.append(list())
         self.idx += 1
-
 
     def push_in(self, el):
         if len(self.elems[self.idx]) == 5:
@@ -32,9 +32,6 @@ class StackClass:
     def stack_size(self):
         print(self.elems)
         return len(self.elems)
-
-
-
 
 
 if __name__ == '__main__':
