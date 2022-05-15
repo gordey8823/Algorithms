@@ -20,7 +20,7 @@ def three_max_profits(my_dict):
     1 Вариант. Сложность: O(n^2)
     """
 
-    while len(my_dict) > 3:                  # O(n)
+    while len(my_dict) > 3:                  # O(1)
         for k, v in my_dict.items():         # O(n)
             if v == min(my_dict.values()):   # O(n)
                 del my_dict[k]               # O(1)

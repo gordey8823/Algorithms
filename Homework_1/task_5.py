@@ -33,6 +33,14 @@ class StackClass:
         print(self.elems)
         return len(self.elems)
 
+    def del_plate(self):
+        if len(self.elems[self.idx]) == 0:
+            self.elems.pop()
+            self.idx -= 1
+            self.elems[self.idx].pop()
+        else:
+            self.elems[self.idx].pop()
+
 
 if __name__ == '__main__':
 
@@ -47,6 +55,16 @@ if __name__ == '__main__':
     SC_OBJ.push_in(7)
     SC_OBJ.push_in(8)
     SC_OBJ.push_in(9)
+    SC_OBJ.stack_size()
+    SC_OBJ.del_plate()
+    SC_OBJ.stack_size()
+    SC_OBJ.del_plate()
+    SC_OBJ.stack_size()
+    SC_OBJ.del_plate()
+    SC_OBJ.stack_size()
+    SC_OBJ.del_plate()
+    SC_OBJ.stack_size()
+    SC_OBJ.del_plate()
     SC_OBJ.stack_size()
 
 """Насколько я понял необходимо реализовать долько добавление."""

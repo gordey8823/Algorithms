@@ -18,7 +18,7 @@ def min_in_list1(list1):
     """
     the_min = list1[0]      # O(1)
     for num in list1:       # O(n)
-        if num < the_min:   # O(n)
+        if num < the_min:   # O(1)
             the_min = num   # O(1)
     return the_min          # O(1)
 
