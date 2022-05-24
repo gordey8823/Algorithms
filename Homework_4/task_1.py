@@ -31,4 +31,4 @@ print(timeit('func_2(my_list)', globals=globals(), number=100000))
 
 
 """Вторая функция оказалась более производительной
-так как list comprehension быстрее циклов for которых они заменяют"""
+так как list comprehension быстрее циклов привычных циклов for"""
