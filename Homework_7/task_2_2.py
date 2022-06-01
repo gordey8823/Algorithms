@@ -14,16 +14,18 @@ from random import randint
 from timeit import timeit
 
 
-def search_median(lst):
-    while len(lst) > 1:
+def search_median(lst, m):
+    while len(lst) > m:
         lst.remove(max(lst))
-        lst.remove(min(lst))
-    return lst[0]
+    return max(lst)
 
 
-orig_list = [randint(-100, 100) for _ in range(11)]
-print(timeit("search_median(orig_list[:])", globals=globals(), number=100))
-orig_list2 = [randint(-100, 100) for _ in range(101)]
-print(timeit("search_median(orig_list2[:])", globals=globals(), number=100))
-orig_list3 = [randint(-100, 100) for _ in range(1001)]
-print(timeit("search_median(orig_list3[:])", globals=globals(), number=100))
+m = 9
+size = 2 * m + 1
+
+orig_list = [randint(-100, 100) for _ in range(size)]
+print(timeit("search_median(orig_list[:], m)", globals=globals(), number=10))
+orig_list2 = [randint(-100, 100) for _ in range(size)]
+print(timeit("search_median(orig_list2[:], m)", globals=globals(), number=100))
+orig_list3 = [randint(-100, 100) for _ in range(size)]
+print(timeit("search_median(orig_list3[:], m)", globals=globals(), number=1000))

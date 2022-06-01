@@ -11,11 +11,12 @@
 Кучей)
 сделайте замеры на массивах длиной 10, 100, 1000 элементов
 """
+"""Гномья сортировка"""
 from random import randint
 from timeit import timeit
 
 
-def search_median(lst):
+def search_median(lst, m):
     i = 1
     while i < len(lst):
         if lst[i - 1] <= lst[i]:
@@ -27,13 +28,15 @@ def search_median(lst):
             i -= 1
             if i == 0:
                 i = 1
-    return lst[len(lst)//2]
+    return lst[m]
 
 
-orig_list = [randint(-100, 100) for _ in range(11)]
-print(timeit("search_median(orig_list[:])", globals=globals(), number=100))
-orig_list2 = [randint(-100, 100) for _ in range(101)]
-print(timeit("search_median(orig_list2[:])", globals=globals(), number=100))
-orig_list3 = [randint(-100, 100) for _ in range(1001)]
-print(timeit("search_median(orig_list3[:])", globals=globals(), number=100))
+m = 9
+size = 2 * m + 1
 
+orig_list = [randint(-100, 100) for _ in range(size)]
+print(timeit("search_median(orig_list[:], m)", globals=globals(), number=10))
+orig_list2 = [randint(-100, 100) for _ in range(size)]
+print(timeit("search_median(orig_list2[:], m)", globals=globals(), number=100))
+orig_list3 = [randint(-100, 100) for _ in range(size)]
+print(timeit("search_median(orig_list3[:], m)", globals=globals(), number=1000))
