@@ -12,19 +12,19 @@
 В конце сделайте аналитику какой из трех способов оказался эффективнее
 
 1 способ:
-0.0015571000003546942
-0.11782659999880707
-14.12340580000091
+0.0003989999968325719
+0.003437899998971261
+0.044708100002026185
 
 2 способ:
-0.0003391999998711981
-0.010895399998844368
-0.9133199000007153
+5.6899996707215905e-05
+0.0005172000019229017
+0.005240599995886441
 
 3 способ:
-0.002691799998501665
-0.003590000000258442
-0.013267599999380764
+0.0004091000009793788
+0.002740399999311194
+0.031626100004359614
 
 Вывод: Самым медленным оказался 1 способ- поиск с помощью гномьей сортировки.
 На небольшом массиве более быстрым был 2 способ- удаление максимального и
@@ -40,9 +40,11 @@ def search_median(lst):
     return median(lst)
 
 
-orig_list = [randint(-100, 100) for _ in range(11)]
-print(timeit("search_median(orig_list[:])", globals=globals(), number=100))
-orig_list2 = [randint(-100, 100) for _ in range(101)]
+m = 9
+size = 2 * m + 1
+orig_list = [randint(-100, 100) for _ in range(size)]
+print(timeit("search_median(orig_list[:])", globals=globals(), number=10))
+orig_list2 = [randint(-100, 100) for _ in range(size)]
 print(timeit("search_median(orig_list2[:])", globals=globals(), number=100))
-orig_list3 = [randint(-100, 100) for _ in range(1001)]
-print(timeit("search_median(orig_list3[:])", globals=globals(), number=100))
+orig_list3 = [randint(-100, 100) for _ in range(size)]
+print(timeit("search_median(orig_list3[:])", globals=globals(), number=1000))
